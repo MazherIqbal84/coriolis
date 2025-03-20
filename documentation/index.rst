@@ -14,7 +14,7 @@ Documentation
 :status:  hidden
 
 
-.. include:: ./documentation/etc/definitions.rst
+.. include:: ./etc/definitions.rst
 
 
 Alliance Documentation
