@@ -145,13 +145,13 @@ if __name__ == '__main__':
                        ,    level=logging.INFO
                        ,    force=True
                        )
-    documents = [ Document( conf, 'content/pages/users-guide/UsersGuide' )
-                , Document( conf, 'content/pages/python-tutorial/PythonTutorial' )
-                , Document( conf, 'content/pages/python-cpp/PythonCpp' )
-                , Document( conf, 'content/pages/design-flow/DesignFlow' )
-                , Document( conf, 'content/pages/stratus/Stratus' )
-                , Document( conf, 'content/pages/check-toolkit/CheckToolkit' )
-                , Document( conf, 'content/pages/rds/RDS' )
+    documents = [ Document( conf, 'pages/users-guide/UsersGuide' )
+                , Document( conf, 'pages/python-tutorial/PythonTutorial' )
+                , Document( conf, 'pages/python-cpp/PythonCpp' )
+                , Document( conf, 'pages/design-flow/DesignFlow' )
+                , Document( conf, 'pages/stratus/Stratus' )
+                , Document( conf, 'pages/check-toolkit/CheckToolkit' )
+                , Document( conf, 'pages/rds/RDS' )
                 ]
     if options.doPdfs:
         for document in documents: document.toPdf()

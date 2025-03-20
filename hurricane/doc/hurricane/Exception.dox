@@ -1,0 +1,66 @@
+
+ // -*- C++ -*-
+
+
+ namespace Hurricane {
+
+ /*! \class        Exception
+  *  \brief        Exception description (\b API)
+  *
+  *  \section      secExceptionIntro  Introduction
+  *
+  *                The Exception class groups all exceptions thrown by functions 
+  *                from the API. This virtual class is only useful to catch 
+  *                exceptions originating from one of those functions. 
+  *
+  *  \remark       Copy construction is disabled.
+  * 
+  * 
+  *  \section      secExceptionExample  Example
+  *
+\code
+try {
+   // do something
+}
+catch (Exception& exception) {
+   // Go through here if the exception comes from a function of the API
+   cerr << exception.what() << endl;
+   exit(1);
+}
+catch (...) {
+   // Go through here for all other system exceptions
+   cerr << Error("abnormal termination") << endl;
+   // We use the Error() in order to get the same kind of printing
+   exit(2);
+}
+\endcode
+  */
+
+ /*! \function     string  Exception::what() const;
+  *  \Return       an alias over the textWhat() method for convenience.
+  */
+
+ /*! \function     string  Exception::textWhat() const;
+  *  \Return       an informative (hopefully) about what has caused the exception to
+  *                occurs. Formatted for an output on a tty.
+  *
+  *  \see          setTextTranslator
+  */
+
+ /*! \function     string  Exception::htmlWhat() const;
+  *  \Return       an informative (hopefully) about what has caused the exception to
+  *                occurs. Formatted for an output on a HTML capable device.
+  *
+  *  \see          setHtmlTranslator
+  */
+
+ /*! \function     string  Exception::setTextTranslator(const TextTranslator& translator);
+  *                Set the translator used for text (tty) output.
+  */
+
+ /*! \function     string  Exception::setHtmlTranslator(const TextTranslator& translator);
+  *                Set the translator used for HTML (hint: Qt manage simple HTML in text)
+  *                output.
+  */
+
+ }

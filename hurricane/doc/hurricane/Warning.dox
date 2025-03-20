@@ -1,0 +1,77 @@
+
+ // -*- C++ -*-
+
+
+ namespace Hurricane {
+
+ /*! \class        Warning
+  *  \brief        Warning description (\b API)
+  *
+  *  \section      secWarningIntro  Introduction
+  *
+  *                There is no difference with the Error type but the printed 
+  *                message is prefixed by <b>WARNING</b> instead of 
+  *                <b>ERROR</b>. 
+  * 
+  *  \section      secWarningNouveauxTypes  Nouveaux types
+  *
+  *                type: <b>Warning::Inherit</b> -\> Exception Useful for 
+  *                calling the base class methods without knowing this class. 
+  * 
+  * 
+  *  \section      secWarningRemark  Remark
+  *
+  *                You can also use this object to print messages without 
+  *                throwing an exception as shown below : 
+\code
+Cell* cell = library->getCell("adder"); // we get the cell
+ 
+if (!cell)
+   cerr << Warning("Unknown cell adder").what() << endl;
+else {
+   // we know what to do here
+}
+\endcode
+  *                The same remark applies to all exception types. 
+  */
+
+
+ /*! \function     Warning::Warning(const Warning& warning);
+  *                Copy constructor.
+  */
+
+ /*! \function     Warning::Warning(const string& reason);
+  *                Builds a warning characterized by a reason (code defaults to zero).
+  */
+
+ /*! \function     Warning::Warning(const char* format, ...);
+  *                Builds a warning characterized by a reason, using the \c vararg protocol
+  *                and \c printf format (code defaults to zero).
+  */
+
+ /*! \function     Warning::Warning(int code, const string& reason);
+  *                Builds a warning characterized by a reason and a code useful 
+  *                within a switch. 
+  */
+
+ /*! \function     Warning::Warning(int code, const char* format, ...);
+  *                Builds a warning characterized by a reason and a code useful 
+  *                within a switch. The reason is supplied in a \c printf
+  *                like  fashion.
+  */
+
+
+ /*! \function     Warning& Warning::operator=(const Warning& warning);
+  *                Assignment operator. 
+  */
+
+
+ /*! \function     string  Warning::getReason() const;
+  *  \Return       the reason for which the warning was thrown. 
+  */
+
+ /*! \function     int Warning::getCode() const;
+  *  \Return       the warning code number. 
+  */
+
+ }

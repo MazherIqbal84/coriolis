@@ -1,0 +1,194 @@
+
+ // -*- C++ -*-
+
+
+ namespace Hurricane {
+
+ /*! \class        Contact
+  *  \brief        Contact description (\b API)
+  *
+  *  \section      secContactIntro  Introduction
+  *
+  *                Contacts are objects representing contact points within a 
+  *                net. A contact may have a null size, be a single layer 
+  *                contact or a multi-layer contact (i.e. a VIA). 
+  */
+
+
+
+ /*! \typedef      Contact::Inherit
+  *                Useful for calling upon methods of the base class without 
+  *                knowing it. 
+  */
+
+ /*! \class        Contact::AnchorHook
+  *                With contacts, a new type of Hook appears : the 
+  *                <b>AnchorHook</b>, which allows to attach a contact upon an 
+  *                other component, on which it is said to be "anchored". It 
+  *                becomes then a "relative contact" with respect of the 
+  *                coordinates of this component. The AnchorHook is always a 
+  *                slave hook. 
+  *
+  *
+  *  \remark       A contact has two attributes \c \<Dx\> and \c \<Dy\> which 
+  *                represent the relative coordinates of the contact with 
+  *                respect to the coordinates of the component on which it is 
+  *                anchored (through this AnchorHook). When it is not anchored, 
+  *                those coordinates becomes relative to the origin of the cell, 
+  *                which means they are absolute. 
+  */
+
+
+ /*! \function     Contact* Contact::create(Net* net, const Layer* layer, DbU::Unit x, DbU::Unit y, DbU::Unit width=0, DbU::Unit height=0);
+  *                creates and returns a new contact belonging to the net 
+  *                \c \<net\>, on the layer \c \<layer\>, of size \c \<width\> 
+  *                and \c \<height\> and located at the absolute coordinates 
+  *                \c \<x\> and \c \<y\>. 
+  *
+  *  \caution      Throws an exception if the layer or the net is null. 
+  */
+
+ /*! \function     Contact* Contact::create(Component* anchor, const Layer* layer, DbU::Unit dx, DbU::Unit dy, DbU::Unit width=0, DbU::Unit height=0);
+  *                creates and returns a new contact on the layer \c \<layer\>, 
+  *                of size \c \<width\> and \c \<height\> attached upon the 
+  *                component \c \<anchor\> through an offset defined by 
+  *                \c \<dx\> et \c \<dy\>. 
+  *
+  *  \caution      Throws an exception if the layer or the anchor is null or if 
+  *                the anchor is an unconnected plug. 
+  *
+  *  \remark       The new contact belongs to the anchor's net. 
+  */
+
+
+ /*! \function     Contact::AnchorHook* Contact::getAnchorHook();
+  *  \Return       the hook through which the contact can be attached upon an 
+  *                anchor. 
+  */
+
+ /*! \function     Component* Contact::getAnchor() const;
+  *                The anchor hook of the contact being a slave one, it may have 
+  *                a master hook representing the body of the anchor on which it 
+  *                is attached. This method returns the owner of this master 
+  *                hook if it exists else NULL (either the contact is an 
+  *                absolute one (its anchor hook is not inserted in a ring) or 
+  *                this ring doesn't contain a master hook (lowly probable, 
+  *                transitory)). 
+  */
+
+ /*! \function     DbU::Unit Contact::getDx() const;
+  *  \Return       the relative abscissa of the contact. 
+  *
+  *  \remark       If you want to get the absolute one use the member function 
+  *                getX() defined at the Component level. 
+  */
+
+ /*! \function     DbU::Unit Contact::getDy() const;
+  *  \Return       the relative ordinate of the contact. 
+  *
+  *  \remark       If you want to get the absolute one use the member function 
+  *                getY() defined at the Component level. 
+  */
+
+ /*! \function     DbU::Unit Contact::getWidth() const;
+  *  \Return       the contact width. 
+  */
+
+ /*! \function     DbU::Unit Contact::getHalfWidth() const;
+  *  \Return       the contact half width. 
+  */
+
+ /*! \function     DbU::Unit Contact::getHeight() const;
+  *  \Return       the contact height. 
+  */
+
+ /*! \function     DbU::Unit Contact::getHalfHeight() const;
+  *  \Return       the contact half height. 
+  */
+
+
+ /*! \function     void Contact::setLayer(const Layer* layer);
+  *                sets the contact layer. 
+  */
+
+ /*! \function     void Contact::setWidth(DbU::Unit width);
+  *                sets the contact width. 
+  */
+
+ /*! \function     void Contact::setHeight(DbU::Unit height);
+  *                sets the contact height. 
+  */
+
+ /*! \function     void Contact::setSizes(DbU::Unit width, DbU::Unit height);
+  *                sets both contact width and height. 
+  */
+
+ /*! \function     void Contact::setX(DbU::Unit x);
+  *                Allows to change the absolute abscissa of the contact (if it 
+  *                has a location relative to an other component, only relative 
+  *                position to this last is accordingly changed). 
+  */
+
+ /*! \function     void Contact::setY(DbU::Unit y);
+  *                Allows to change the absolute ordinate of the contact (if it 
+  *                has a location relative to an other component, only relative 
+  *                position to this last is accordingly changed). 
+  */
+
+ /*! \function     void Contact::setPosition(DbU::Unit x, DbU::Unit y);
+  *                No description.
+  */
+
+ /*! \function     void Contact::setPosition(const Point& position);
+  *                Allows to change the absolute location of the contact (if it 
+  *                has a location relative to an other component, only relative 
+  *                position to this last is accordingly changed). 
+  */
+
+ /*! \function     void Contact::setDx(DbU::Unit dx);
+  *                Allows to change the horizontal offset of the contact. 
+  *
+  *  \remark       If the contact is absolute, this amounts to change its 
+  *                absolute abscissa. 
+  */
+
+ /*! \function     void Contact::setDy(DbU::Unit dy);
+  *                Allows to change the vertical offset of the contact. 
+  *
+  *  \remark       If the contact is absolute, this amounts to change its 
+  *                absolute ordinate. 
+  */
+
+ /*! \function     void Contact::setOffset(DbU::Unit dx, DbU::Unit dy);
+  *                Allows to change the offset of the contact. 
+  *
+  *  \remark       If the contact is absolute, this amounts to change its 
+  *                absolute location. 
+  */
+
+
+ //! \name         Contact Collection
+ //  \{
+
+ /*! \typedef      Contacts
+  *                Generic collection representing a set of contacts. 
+  */
+
+ /*! \typedef      ContactLocator
+  *                Generic locator for traversing a collection of contacts. 
+  */
+
+ /*! \typedef      ContactFilter
+  *                Generic filter allowing to select a subset of contacts 
+  *                matching some criteria. 
+  */
+
+ /*! \def          for_each_contact(contact, contacts)
+  *                Macro for visiting all the contacts of a collection of 
+  *                contacts. 
+  */
+
+ //  \}
+
+
+ }

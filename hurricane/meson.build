@@ -1,0 +1,6 @@
+rapidjson = dependency('RapidJSON', required: not get_option('only-docs'))
+bzip2 = cc.find_library('bz2', required: not get_option('only-docs'))
+subdir('src')
+subdir('doc/hurricane')
+subdir('doc/viewer')
+subdir('doc/analog')

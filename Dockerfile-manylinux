@@ -1,0 +1,12 @@
+FROM quay.io/pypa/manylinux2014_x86_64:2023-07-14-55e4124
+
+RUN yum -y install epel-release && \
+ yum repolist
+
+RUN yum install -y \
+ qt5-qtbase-devel qt5-qtsvg-devel \
+ rapidjson-devel bison flex doxygen bzip2-devel flex-devel \
+ boost169-devel  libxml2-devel  qwt-devel eigen3-devel \
+ ccache \
+ wget
+

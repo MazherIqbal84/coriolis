@@ -1,0 +1,296 @@
+
+ // -*- C++ -*-
+
+
+ namespace Hurricane {
+
+ //! \class        Cell
+ //! \brief        The model (\b API).
+ //!
+ //! \section      secCellHierarchy  Layout vs. Netlist Cell Hierarchy
+ //!
+ //!               The Cell / Instance hierarchy can be walkthrough in two different
+ //!               modes:
+ //!               <ul>
+ //!                 <li> <b>The Layout Mode</b>, in this mode the walktrough will be done
+ //!                      over all the instances levels. This mode is used for the following
+ //!                      collections:
+ //!                      <ul>
+ //!                        <li> Cell::getTerminalInstanceOccurrences().
+ //!                      </ul>
+ //!
+ //!                 <li> <b>The Netlist Mode</b>, in this mode the walktrough will stop
+ //!                      at instances flagged as Cell::Flags::TerminalInstance.
+ //!                      The netlist hierarchy will be a subset of the layout one.
+ //!                      Or, conversely, some level of layout hirearchy can have no
+ //!                      netlist equivalent. This mode is used for the following
+ //!                      collections:
+ //!
+ //!                      <ul>
+ //!                        <li> Cell::getTerminalNetlistInstanceOccurrences().
+ //!                        <li> Cell::getNonTerminalNetlistInstanceOccurrences().
+ //!                      </ul>
+ //!               </ul>
+
+
+ /*! \function     Cell* Cell::create ( Library* library, const Name& name );
+  *                creates and returns a new Cell named \e name for the Library
+  *                \e library.
+  *
+  *  \caution      Throws an exception if the Library is null, if the Name is
+  *                empty or if a cell with same name already exists in the
+  *                Library.
+  */
+
+
+ /*! \function     Library* Cell::getLibrary () const;
+  *                Returns the Library owning the Cell.
+  */
+
+ /*! \function     const Name& Cell::getName () const;
+  *                Returns the Name of the Cell.
+  */
+
+ /*! \function     Instance* Cell::getInstance ( const Name& name ) const;
+  *                Returns the Instance of name \e name if it exists, else \NULL.
+  */
+
+ /*! \function     Instances Cell::getInstances () const;
+  *                Returns the Collection of all instances called by the Cell.
+  */
+
+ /*! \function     Instances Cell::getInstancesUnder ( const Box& area ) const;
+  *                Returns the collection of all instances of the Cell intersecting the
+  *                given rectangular \e area.
+  */
+
+ /*! \function     Instances Cell::getSlaveInstances () const;
+  *                Returns the Collection of instances whose master is this Cell.
+  */
+
+ /*! \function     Net* Cell::getNet ( const Name& name ) const;
+  *                Returns the Net of name \e name if it exists, else \NULL.
+  */
+
+ /*! \function     Nets Cell::getNets () const;
+  *                Returns the Collection of all nets of the Cell.
+  */
+
+ /*! \function     Nets Cell::getGlobalNets () const;
+  *                Returns the Collection of all global nets of the Cell.
+  */
+
+ /*! \function     Nets Cell::getExternalNets () const;
+  *                Returns the Collection of all external nets of the Cell.
+  */
+
+ /*! \function     Nets Cell::getInternalNets () const;
+  *                Returns the Collection of all internal nets of the Cell.
+  */
+
+ /*! \function     Nets Cell::getClockNets () const;
+  *                Returns the Collection of all clock nets of the Cell.
+  */
+
+ /*! \function     Nets Cell::getSupplyNets () const;
+  *                Returns the Collection of all supply nets of the Cell.
+  */
+
+ /*! \function     Slice* Cell::getSlice ( const Layer* layer ) const;
+  *                Returns the Slice associated with the Layer \e layer if it exists, else \NULL.
+  */
+
+ /*! \function     Slices  Cell::getSlices ( const Layer::Mask& mask = ~0 ) const;
+  *                Returns the Collection of slices of a Cell.
+  */
+
+ /*  \function     Views  Cell::getViews () const;
+  *                Returns the Collection of graphical views of a Cell.
+  */
+
+ /*  \function     Views  Cell::getMainViews () const;
+  *                Returns the Collection of main graphical views of a Cell.
+  */
+
+ /*  \function     Views  Cell::getImpactedMainViews () const;
+  *                Returns the Collection of main graphical views we should update after
+  *                a Cell has been modified.
+  *
+  *                When applying modifications upon a Cell, we need to update
+  *                main graphical views of a cell but also main graphical views
+  *                of cells which call directly or indirectly the Cell.
+  */
+
+ /*! \function     Rubbers  Cell::getRubbers () const;
+  *                Returns the Collection of all Rubbers of a Cell.
+  */
+
+ /*! \function     Rubbers Cell::getRubbersUnder ( const Box& area ) const;
+  *                Returns the collection of all Rubbers of the Cell intersecting the
+  *                given rectangular \e area.
+  *
+  *  \caution      Only currently materialized rubbers are taken into account
+  *                in this collection.
+  */
+
+ /*! \function     Components  Cell::getComponents ( const Layer::Mask& mask = ~0 ) const;
+  *                Returns the Collection of all Components of the Cell.
+  */
+
+ /*! \function     Components Cell::getComponentsUnder ( const Box& area, const Layer::Mask& mask = ~0 ) const;
+  *                Returns the collection of all Components of the Cell intersecting the
+  *                given rectangular \e area.
+  *
+  *  \caution      Only currently materialized Components are taken into account
+  *                in this collection.
+  */
+
+ /*! \function     Occurrences  Cell::getOccurrences ( unsigned searchDepth=(unsigned)-1 ) const;
+  *                Returns the Collection of all Occurrences belonging to this Cell.
+  *
+  *  \remark       The search depth is decremented each time a hirearchical
+  *                level is crossed. The search ends when depth becomes null
+  *                (the value \c INFINITE is equal to \c (unsigned)-1) .
+  */
+
+ /*! \function     Occurrences  Cell::getOccurrencesUnder ( const Box& area, unsigned searchDepth=(unsigned)-1 ) const;
+  *                Returns the Collection of all Occurrences belonging to this Cell and
+  *                intersecting the given rectangular area.
+  *
+  *  \remark       The search depth is decremented each time a hirearchical
+  *                level is crossed. The search ends when depth becomes null
+  *                (the value \c INFINITE is equal to \c (unsigned)-1) .
+  *
+  *  \caution      Only occurences corresponding to currently materialized
+  *                entities are taken into account in this Collection.
+  */
+
+ //! \function     Occurrences  Cell::getTerminalInstanceOccurrences () const;
+ //!               Returns the trans-hierarchical Collection of all instance Occurrences that are
+ //!               layout terminal cells (leaves).
+
+ /*! \function     Occurrences  Cell::getTerminalNetlistInstanceOccurrences ( const Instance* topInstance=NULL ) const;
+  *                Returns the trans-hierarchical Collection of all instance Occurrences that are
+  *                leaf cells. With the \c topInstance argument we can restrict the collection
+  *                to leafs of that instance (of the current Cell) only.
+  */
+
+ /*! \function     Occurrences  Cell::getNonTerminalNetlistInstanceOccurrences ( const Instance* topInstance=NULL ) const;
+  *                Returns the trans-hierarchical Collection of all instance Occurrences that are
+  *                \b not leaf cells. With the \c topInstance argument we can restrict the collection
+  *                to non-leafs of that instance (of the current Cell) only.
+  */
+
+ /*! \function     Box  Cell::getAbutmentBox () const;
+  *                Returns Returns the abutment box of the cell (which is defined by the
+  *                designer unlike the bounding box which is managed dynamically).
+  */
+
+ /*  \function     Symbol* Cell::getSymbol () const;
+  *                Returns the symbol associated to the cell.
+  */
+
+
+ /*! \function     bool  Cell::isCalledBy ( Cell* cell ) const;
+  *                Returns \true if the cell \this is directly or indirectly called by
+  *                the Cell \e cell. This functions allows to check that there is
+  *                no cyclic instance calls of cells (it is by default,
+  *                automatically called when creating an instance).
+  */
+
+ //! \function     bool  Cell::isTerminal () const;
+ //!               Returns \true if the cell contains no instances. This is a layout
+ //!               leaf cell.
+
+ //! \function     bool  Cell::isTerminalNetlist () const;
+ //!               Returns \true if the Cell is marked as terminal for the \e netlist
+ //!               hierarchy. A terminal \e netlist cell may, however contains
+ //!               further level of physical (layout) instances. This is a state
+ //!               that can be set or unset.
+
+ //! \function     bool  Cell::isUnique () const;
+ //!               Returns \true if the Cell has one or less instances, regardless of
+ //!               it's uniquification state.
+
+ //! \function     bool  Cell::isUniquified () const;
+ //!               Returns \true if this Cell is the result of an uniquification \b and
+ //!               is not the reference (the original) Cell.
+
+ //! \function     bool  Cell::isUniquifyMaster () const;
+ //!               Returns \true if the Cell has been uniquified and this is the original
+ //!               Cell. The original Cell can have both normal instances and uniquified
+ //!               instances.
+
+ /*! \function     void  Cell::setName ( const Name& name );
+  *                Allows to change the Cell Name.
+  *
+  *  \remark       Throws an exception if the new \e name is empty or if the
+  *                Library owning the Cell has already a Cell with the same
+  *                name.
+  */
+
+ /*! \function     void  Cell::setAbutmentBox ( const Box& abutmentBox );
+  *                sets Cell abutment box.
+  *
+  *  \remark       At the Cell creation the abutment box is empty. This one must
+  *                be set through this function. It is possible also, once
+  *                fixed, to reset it to empty (undefined) by passing an empty
+  *                Box as argument.
+  */
+
+ /*! \function     void  Cell::setTerminalNetlist ( bool state );
+  *                sets Cell \e netlist terminal status to \e state.
+  */
+
+ /*  \function     void  Cell::setSymbol ( Symbol* symbol );
+  *                Associates the symbol \e symbol to the Cell.
+  */
+
+ /*! \function     void  Cell::materialize ();
+  *                materializes all components of all the nets of the Cell.
+  */
+
+ /*! \function     void  Cell::unmaterialize ();
+  *                De-materializes all components of all the nets of the Cell.
+  */
+
+ //! \function     void Cell::uniquify ( unsigned int depth=(unsigned int)-1 );
+ //! \param        depth  Recursively perform the uniquification until that
+ //!                      hierarchical depth.
+ //!
+ //!               Multiple instances of a same model are modificated so that
+ //!               each instance has it's own \e unique copy of the model.
+ //!
+ //!               This is equivalent to a flatten operation, but without
+ //!               destroying the intermediate level of hierarchy. Only the
+ //!               \b netlist and instance's placements gets duplicated.
+ //!               <em>No physical components will be duplicated.</em>
+ //!
+ //! \see          Cell::getClone(), Instance::uniquify().
+
+ //! \function     Cell* Cell::getClone ();
+ //!               Build a duplicate of the Cell. The database keep track of all
+ //!               the duplicate of one original Cell. The name of a duplicate
+ //!               is generated by appending \c '_uXX' where \c 'XX' is the number
+ //!               of the duplicate.
+ //!
+ //!               Only logical information (netlist) and instance's placements
+ //!               gets duplicated. <em>No physical components will be duplicated.</em>
+
+ /*! \typedef      typedef GenericCollection<Cell*> Cells;
+  *                Generic collection representing a set of cell objects.
+  */
+
+ /*! \typedef      typedef GenericLocator<Cell*> CellLocator;
+  *                Generic locator for visiting a cell objects Collection.
+  */
+
+ /*! \typedef      typedef GenericFilter<Cell*> CellFilter;
+  *                Filter to selecting a subset of cell objects matching some criteria.
+  */
+
+ /*! \def          for_each_entity(entity,entities)
+  *                Macro for visiting all objects of a cell objects collection.
+  */
+
+ }

@@ -1,0 +1,22 @@
+<RCC>
+  <qresource>
+    <file>images/stock_open.png</file>
+    <file>images/stock_save.png</file>
+    <file>images/palette_show_all.png</file>
+    <file>images/palette_hide_all.png</file>
+    <file>images/gtk-go-up.png</file>
+    <file>images/gtk-go-down.png</file>
+    <file>images/gtk-go-forward-rtl.png</file>
+    <file>images/gtk-go-forward-ltr.png</file>
+    <file>images/swiss-knife.png</file>
+    <file>images/python-logo-v3.png</file>
+    <file>images/stratus-cloud.png</file>
+    <file>images/gnome-gmush.png</file>
+    <file>images/gnome-core.png</file>
+    <file>images/i-core.png</file>
+    <file>images/angry-birds-red.png</file>
+    <file>images/angry-birds-chuck.png</file>
+    <file>images/angry-birds-bomb.png</file>
+    <file>images/Coriolis-logo-white-4.png</file>
+  </qresource>
+</RCC>

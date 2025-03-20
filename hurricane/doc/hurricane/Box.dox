@@ -1,0 +1,231 @@
+
+ // -*- C++ -*-
+
+
+ namespace Hurricane {
+
+ /*! \class        Box
+  *  \brief        Box description (\b API)
+  *
+  *  \section      secBoxIntro  Introduction
+  *
+  *                Those objects represent rectangular boxes. They are defined 
+  *                by the values <b>XMin</b>, <b>YMin</b>, <b>XMax</b> and 
+  *                <b>YMax</b> which are representatives only when the box is 
+  *                not empty. A box is considered empty whenever it is not 
+  *                initialized or when it doesn't represent a real area like the 
+  *                intersection of two disjoint boxes. 
+  *
+  *
+  *  \section      secBoxModifierRemark  Remark on Modifiers
+  *
+  *                All the function described in the modifiers section returns a 
+  *                reference on the modified box, providing so the capability to 
+  *                apply to it a new modification as illustrated in the 
+  *                following example : 
+\code
+Box box1(0, 0, 100, 100);
+Box box2(20, 20, 50, 150;
+ 
+if (box1.inflate(3).merge(box2.translate(10, 10).inflate(-1, 1)).contains(20, 20)) {
+   // do we reach here ? that is the question !
+}
+\endcode
+  */
+
+
+ /*! \function     Box::Box();
+  *                Default constructor : the returned box is empty. 
+  */
+
+ /*! \function     Box::Box(const DbU::Unit& x, const DbU::Unit& y);
+  *                Builds a box of null size centered on the point defined by 
+  *                \c \<x\> and \c \<y\>. 
+  */
+
+ /*! \function     Box::Box(const Point& point);
+  *                Builds a box of null size centered on the point. 
+  */
+
+ /*! \function     Box::Box(const DbU::Unit& x1, const DbU::Unit& y1, const DbU::Unit& x2, const DbU::Unit& y2);
+  *                Builds the minimal box enclosing the two points defined by 
+  *                the coordinates \c \<x1\>, \c \<y1\> and \c \<x2\>, 
+  *                \c \<y2\>. 
+  */
+
+ /*! \function     Box::Box(const Point& point1, const Point& point2);
+  *                Builds the minimal box enclosing the two points. 
+  */
+
+ /*! \function     Box::Box(const Box& box);
+  *                Copy constructor. 
+  */
+
+
+ /*! \function     Box& Box::operator=(const Box& box);
+  *                Assignment operator. 
+  */
+
+ /*! \function     bool Box::operator==(const Box& box) const;
+  *                Equality operator. 
+  *
+  *  \remark       Two empty boxes are always different. 
+  */
+
+ /*! \function     bool Box::operator!=(const Box& box) const;
+  *                Difference operator. 
+  */
+
+
+ /*! \function     const DbU::Unit& Box::getXMin() const;
+  *  \Return       the XMin value : meaningful only for a non empty box. 
+  */
+
+ /*! \function     const DbU::Unit& Box::getYMin() const;
+  *  \Return       the YMin value : meaningful only for a non empty box. 
+  */
+
+ /*! \function     const DbU::Unit& Box::getXMax() const;
+  *  \Return       the XMax value : meaningful only for a non empty box. 
+  */
+
+ /*! \function     const DbU::Unit& Box::getYMax() const;
+  *  \Return       the YMax value : meaningful only for a non empty box. 
+  */
+
+ /*! \function     DbU::Unit Box::getXCenter() const;
+  *  \Return       the abscissa of the box center : meaningful only for a non 
+  *                empty box. 
+  */
+
+ /*! \function     DbU::Unit Box::getYCenter() const;
+  *  \Return       the ordinate of the box center : meaningful only for a non 
+  *                empty box. 
+  */
+
+ /*! \function     Point Box::getCenter() const;
+  *  \Return       the box center point : meaningful only for a non empty box. 
+  */
+
+ /*! \function     DbU::Unit Box::getWidth() const;
+  *  \Return       the box width : meaningful only for a non empty box. 
+  */
+
+ /*! \function     DbU::Unit Box::getHalfWidth() const;
+  *  \Return       the half box width : meaningful only for a non empty box. 
+  */
+
+ /*! \function     DbU::Unit Box::getHeight() const;
+  *  \Return       the box height : meaningful only for a non empty box. 
+  */
+
+ /*! \function     DbU::Unit Box::getHalfHeight() const;
+  *  \Return       the half box height : meaningful only for a non empty box. 
+  */
+
+ /*! \function     Box Box::getUnion(const Box& box) const;
+  *  \Return       the smallest enclosing box containing the boxes \c \<this\> 
+  *                and \c \<box\>. The returned box may be empty if both are. 
+  */
+
+ /*! \function     Box Box::getIntersection(const Box& box) const;
+  *  \Return       box representing the overlapping area. This box is empty if 
+  *                either one of the two boxes is empty or if they are disjoint. 
+  */
+
+
+ /*! \function     bool Box::isEmpty() const;
+  *  \Return       \true if the box is empty, else \false. 
+  */
+
+ /*! \function     bool Box::isFlat() const;
+  *  \Return       \true if the box is non void and if we have either 
+  *                ((XMin==XMax) an (YMin\<YMax)) or ((XMin\<XMax) and 
+  *                (YMin==YMax)). 
+  */
+
+ /*! \function     bool Box::isPonctual() const;
+  *  \Return       \true if the box is reduced to a point, else \false. 
+  */
+
+ /*! \function     bool Box::contains(const DbU::Unit& x, const DbU::Unit& y) const;
+  *  \Return       \true if the box is non empty and contains the point defined 
+  *                by the coordinates \c \<x\>, \c \<y\> else \false. 
+  */
+
+ /*! \function     bool Box::contains(const Point& point) const;
+  *  \Return       \true if the box is non empty and contains the point 
+  *                \c \<point\>, else \false. 
+  */
+
+ /*! \function     bool Box::contains(const Box& box) const;
+  *  \Return       \true if the two boxes are non empty and if the box 
+  *                \c \<this\> contains the box \c \<box\>, else \false. 
+  */
+
+ /*! \function     bool Box::intersect(const Box& box) const;
+  *  \Return       \true if the two boxes are non empty and if they overlap, 
+  *                else \false. 
+  */
+
+ /*! \function     bool Box::isConstrainedBy(const Box& box) const;
+  *  \Return       \true if the two boxes are non empty, if the box \c \<this\> 
+  *                contains the box \c \<box\> and if those two boxes have at 
+  *                least a common border side, else \false. 
+  */
+
+
+ /*! \function     Box& Box::makeEmpty();
+  *                Transforms the box into an empty one. 
+  */
+
+ /*! \function     Box& Box::inflate(const DbU::Unit& d);
+  *                Expands (or contracts) the box, if not empty, in each 
+  *                direction of the quantity \c \<d\>. This quantity might be 
+  *                negative enough to transform it into an empty box. 
+  */
+
+ /*! \function     Box& Box::inflate(const DbU::Unit& dx, const DbU::Unit& dy);
+  *                Expands (or contracts) the box, if not empty, horizontaly of 
+  *                the quantity \c \<dx\> and vertically of the quatity 
+  *                \c \<dy\>. Those quantities might be negative enough to 
+  *                transform it into an empty box. 
+  */
+
+ /*! \function     Box& Box::inflate(const DbU::Unit& dxMin, const DbU::Unit& dyMin, const DbU::Unit& dxMax, const DbU::Unit& dyMax);
+  *                Expands (or contracts) the box, if not empty, on the left of 
+  *                the quantity \c \<dxMin\>, on the bottom of the quantity 
+  *                \c \<dyMin\>, on the right of the quantity \c \<dxMax\> and 
+  *                on the top of the quantity \c \<dyMax\>. Those quantities 
+  *                might be negative enough to transform it into an empty box. 
+  */
+
+ /*! \function     Box& Box::merge(const DbU::Unit& x, const DbU::Unit& y);
+  *                Expands the box in order that it encloses the point defined 
+  *                by coordinates \c \<x\> and \c \<y\>. If the box was 
+  *                initially empty it becomes reduced to the enclosed point. 
+  */
+
+ /*! \function     Box& Box::merge(const Point& point);
+  *                Expands the box in order that it encloses the point 
+  *                \c \<point\>. If the box was initially empty it becomes 
+  *                reduced to the enclosed point. 
+  */
+
+ /*! \function     Box& Box::merge(const DbU::Unit& x1, const DbU::Unit& y1, const DbU::Unit& x2, const DbU::Unit& y2);
+  *                Expands the box in order that it encloses the points defined 
+  *                by coordinates \c \<x1\>, \c \<y1\> and \c \<x2\>, \c \<y2\>. 
+  */
+
+ /*! \function     Box& Box::merge(const Box& box);
+  *                Expands the box in order that it encloses, if not empty, the 
+  *                box \c \<box\>. If the box \c \<this\> was initially empty it 
+  *                becomes reduced to the enclosed box. 
+  */
+
+ /*! \function     Box& Box::translate(const DbU::Unit& dx, const DbU::Unit& dy);
+  *                translates the box, if not empty, of the quantities \c \<dx\> 
+  *                and \c \<dy\>. 
+  */
+
+ }
