@@ -14,7 +14,7 @@ Stratus : Developper's Documentation
 :status:  hidden
 
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 
 
 Printable version of this Document

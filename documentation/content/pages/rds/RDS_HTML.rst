@@ -14,7 +14,7 @@ RDS / Symbolic to Real Conversion
 :status:  hidden
 
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 
 .. |RDS_VW|                         image:: {attach}images/RDS_VW.png
                                     :alt: RDS Variable Width Rule

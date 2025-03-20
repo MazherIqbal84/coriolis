@@ -14,7 +14,7 @@ Stratus : Netlist Capture Language
 :status:  hidden
 
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 
 .. |add1|     image:: {attach}images/add1.png
 .. |add2|     image:: {attach}images/add2.png

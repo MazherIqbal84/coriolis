@@ -1,6 +1,6 @@
 .. -*- mode: rst; explicit-buffer-name: "RDS.rst<pelican>" -*-
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 
 .. Stand-alone images.
 .. |RDS_VW|                         image:: ./images/RDS_VW.png

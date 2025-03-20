@@ -11,20 +11,14 @@ While |Coriolis| can be used stand-alone, it is in fact part of a more complete
 design flow build upon |Yosys| and |Alliance|. In addition, a set of demos and
 examples are supplied in the repository |alliance-check-toolkit|.
 
-* |Yosys| :
+* |Yosys| : http://www.clifford.at/yosys/
 
-  An |rpm| packaged version is available here: (works fine with linux el7) 
-  
-  
-  	https://ftp.lip6.fr/pub/linux/distributions/slsoc/soc/7/addons/x86_64/repoview/yosys.html
+  An |rpm| packaged version is available here:
 
- 
-  For later version of linux, visit https://github.com/YosysHQ/yosys
+  https://ftp.lip6.fr/pub/linux/distributions/slsoc/soc/7/addons/x86_64/repoview/yosys.html
 
-* |Alliance| : 
-
-	https://github.com/lip6/alliance
+* Alliance : https://www-soc.lip6.fr/equipe-cian/logiciels/alliance/
 
 * |alliance-check-toolkit| |git| repository:
 
-	  https://github.com/lip6/alliance-check-toolkit
+  https://www-soc.lip6.fr/git/alliance-check-toolkit.git/

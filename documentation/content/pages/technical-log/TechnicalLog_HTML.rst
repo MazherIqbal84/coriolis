@@ -13,7 +13,7 @@ Coriolis Technical Log
 :status:  hidden
 
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 
 .. contents::
    :depth: 2

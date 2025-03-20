@@ -18,7 +18,7 @@ Design Flow
    :format: html
 
 .. URLs that changes between the various backends.
-.. _Coriolis Tools Documentation:   ../../index.rst
+.. _Coriolis Tools Documentation:   ../documentation.rst
 .. _Here:                           {static}/pdfs/DesignFlow.pdf
 .. _DesignFlow:                     {static}/pdfs/DesignFlow.pdf
 
@@ -33,5 +33,5 @@ Printable Version of this Document
    :depth: 2
 
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 .. include:: QuickStart.rst

@@ -1,6 +1,6 @@
 .. -*- Mode: rst -*-
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../etc/definitions.rst
 
 .. URLs that changes between the various backends.
 .. _Coriolis Tools Documentation:   file:///usr/share/doc/coriolis2/index.html

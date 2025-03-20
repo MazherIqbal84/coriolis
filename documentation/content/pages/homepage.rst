@@ -13,7 +13,7 @@ Coriolis |VLSI| Backend Tools
 :Version: June 4, 2019 (jpc)
 
 
-.. include:: ../etc/definitions.rst
+.. include:: ../../etc/definitions.rst
 	 
 .. contents::
 

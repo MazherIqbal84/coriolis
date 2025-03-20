@@ -6,15 +6,15 @@ Gitlab Repositories
 ===================
 
 
-:slug:    github
-:date:    2023-10-05 16:00
+:slug:    gitlab
+:date:    2019-12-29 16:00
 :author:  Jean-Paul Chaput
 :Contact: <Jean-Paul.Chaput@lip6.fr>
-:Version: October 5, 2023 (jpc)
+:Version: June 4, 2019 (jpc)
 :status:  hidden
 
 
-.. include:: ../etc/definitions.rst
+.. include:: ../../etc/definitions.rst
 
 
 The |git| repositories of all the components of the project:

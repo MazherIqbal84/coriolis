@@ -18,7 +18,7 @@ Alliance Check Toolkit
    :format: html
 
 .. URLs that changes between the various backends.
-.. _Coriolis Tools Documentation:   ../../index.rst
+.. _Coriolis Tools Documentation:   ../documentation.rst
 .. _Alliance Check Toolkit:          {static}/pdfs/CheckToolkit.pdf
 
 
@@ -32,5 +32,5 @@ Printable Version of this Document
    :depth: 1
 
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 .. include:: README.rst

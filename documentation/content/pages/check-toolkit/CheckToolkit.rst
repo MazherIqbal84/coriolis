@@ -1,6 +1,6 @@
 .. -*- Mode: rst -*-
 
-.. include:: ../../etc/definitions.rst
+.. include:: ../../../etc/definitions.rst
 
 .. role:: raw-html(raw)
    :format: html
@@ -8,8 +8,8 @@
 .. URLs that changes between the various backends.
 .. _Coriolis Tools Documentation:   http://coriolis.lip6.fr/
 .. _Stratus Documentation:          http://coriolis.lip6.fr/pages/stratus-language.html
-.. _Here:                           ../images/users-guide/UsersGuide.pdf
-.. _Coriolis User's Guide:          ../images/users-guide/UsersGuide.pdf
+.. _Here:                           ../../images/users-guide/UsersGuide.pdf
+.. _Coriolis User's Guide:          ../../images/users-guide/UsersGuide.pdf
 
 
 
