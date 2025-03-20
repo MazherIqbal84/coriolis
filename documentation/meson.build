@@ -13,7 +13,7 @@ rstcontent = files(
   'etc/definitions.rst',
   'pages/design-flow/DesignFlow_HTML.rst',
   'pages/design-flow/QuickStart.rst',
-  'pages/documentation.rst',
+  'index.rst',
   'pages/gitlab.rst',
   'pages/homepage.rst',
   'pages/python-cpp/Configuration.rst',
