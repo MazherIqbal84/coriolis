@@ -23,10 +23,10 @@ jobs:
           id: deploy-preview
           message: "Starting deployment of preview ⏳..."
 
-      #- name: Set domain
+      - name: Set domain
         run: echo "DOMAIN=mazheriqbal84.github.io" >> $GITHUB_ENV # TODO set your custom domain
          #If you're using the default github pages url, use this instead:
-         run: echo "DOMAIN=${{ github.actor }}.github.io" >> $GITHUB_ENV
+         #run: echo "DOMAIN=${{ github.actor }}.github.io" >> $GITHUB_ENV
 
       - name: Checkout website repo
         uses: actions/checkout@v4
