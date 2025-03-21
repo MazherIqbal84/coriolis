@@ -54,7 +54,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /home/runner/work/install/share/doc/coriolis/html
+          publish_dir: /home/runner/work/install/share/doc/html
           #cname: ${{ env.DOMAIN }} # TODO you need to set this if you're using a custom domain. Otherwise you can remove it.
 
       - name: Set base URL for preview if PR
